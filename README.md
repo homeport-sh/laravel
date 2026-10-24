@@ -59,7 +59,7 @@ same URL; it takes no body and answers `202`.
 
 ## Requirements
 
-PHP 8.2+ and Laravel 11, 12 or 13.
+PHP 8.2+ and Laravel 12 or 13.
 
 ## License
 

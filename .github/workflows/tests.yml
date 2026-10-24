@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         php: ['8.2', '8.3', '8.4', '8.5']
-        laravel: ['11', '12', '13']
+        laravel: ['12', '13']
         exclude:
           - php: '8.2'
             laravel: '13' # Laravel 13 needs PHP 8.3
@@ -32,10 +32,6 @@ jobs:
 
       - name: Install Laravel ${{ matrix.laravel }}
         run: |
-          # Laravel 11 is past its security support: every release has an open
-          # advisory, which Composer refuses by default. Tested anyway, as apps
-          # on it can still install this package.
-          if [ "${{ matrix.laravel }}" = "11" ]; then composer config audit.block-insecure false; fi
           composer require --no-update --no-interaction "illuminate/contracts:^${{ matrix.laravel }}.0" "illuminate/http:^${{ matrix.laravel }}.0" "illuminate/queue:^${{ matrix.laravel }}.0" "illuminate/support:^${{ matrix.laravel }}.0"
           composer update --prefer-dist --no-interaction --no-progress --with-all-dependencies
 
