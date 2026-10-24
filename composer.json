@@ -1,0 +1,50 @@
+{
+    "name": "homeport/laravel",
+    "description": "Kicks homeport's on-demand queue drain when a Laravel job is queued, so jobs run in seconds. Zero config.",
+    "keywords": ["laravel", "queue", "homeport"],
+    "homepage": "https://homeport.sh",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shopaise LLC",
+            "homepage": "https://homeport.sh"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/http": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/queue": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/support": "^11.0 || ^12.0 || ^13.0",
+        "guzzlehttp/guzzle": "^7.8.2 || ^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0 || ^10.0 || ^11.0",
+        "phpunit/phpunit": "^11.0 || ^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Homeport\\Laravel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Homeport\\Laravel\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Homeport\\Laravel\\HomeportServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
