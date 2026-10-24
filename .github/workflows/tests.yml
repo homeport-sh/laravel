@@ -40,6 +40,6 @@ jobs:
           composer update --prefer-dist --no-interaction --no-progress --with-all-dependencies
 
       - name: Versions
-        run: composer show laravel/framework orchestra/testbench phpunit/phpunit | grep -E '^(name|versions)'
+        run: composer show | grep -E '^(laravel/framework|orchestra/testbench|phpunit/phpunit) '
 
       - run: vendor/bin/phpunit
